@@ -15,6 +15,7 @@ if exist %Dir% (
 	call :selectDirectory
 
 ) else (
+	echo %Dir% doesn't exist.
 )
 
 PAUSE
