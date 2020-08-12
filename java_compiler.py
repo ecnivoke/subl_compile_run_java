@@ -2,7 +2,6 @@ import sublime
 import sublime_plugin
 import subprocess
 import os
-import sys
 
 
 class Compile_javaCommand(sublime_plugin.TextCommand):
@@ -15,7 +14,7 @@ class Compile_javaCommand(sublime_plugin.TextCommand):
 
 		if file.find('.java') > -1:
 			file = file.split('.java')[0]
-			subprocess.Popen([dir_path+'/compiler.bat', folder, file, call])
+			subprocess.Popen([dir_path + '/compiler.bat', folder, call, file])
 
 		else:
-			print('"'+ file + '" is not a java file')
+			print('"' + file + '" is not a java file')

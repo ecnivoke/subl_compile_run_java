@@ -1,6 +1,6 @@
 [
 	{
-		"caption": "Run java program", 
+		"caption": "Run this java file", 
 		"command": "compile_java"
 	}
 ]

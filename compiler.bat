@@ -1,14 +1,9 @@
 @ECHO OFF
 :: This file compiles all java files in a directory
-TITLE Java from: %1, %2.class
+TITLE Java from: %1, %3.class
 
 set Dir=%1
-set _Dir=%1
-set File=%2
-set call=%3
-
-set bin=bin
-call set _Dir=%%_Dir:src=%bin%%%
+set call=%2
 
 if exist %Dir% (
 	cd /d %Dir%
@@ -20,14 +15,14 @@ if exist %Dir% (
 
 PAUSE
 
-:: Call the class.class
+:: Execute the given file
 :executeClass 		- executes a class
-	echo ============================================================
-	rem Change directory to bin, call Package.Class.class
+	echo ==========================INFO==============================
+	rem Change directory to bin, call Package.ClassName
 	cd /d ../bin
 
-	echo Directory: %_Dir%
-	echo Class: %File%.class
+	echo Directory: %cd%
+	echo Target Class: %call%.class
 	echo ============================================================
 	java %call%
 
@@ -47,6 +42,7 @@ EXIT /B
 		cd src
 		dir
 		echo ============================================================
+
 		rem Loop over everything in src and compile
 		rem Put compiled files in ../bin
 		for /r %%g in ( *.java ) do (
